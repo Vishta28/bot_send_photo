@@ -15,7 +15,7 @@ import io
 from photo_transfer import photo_transfer
 
 gauth = GoogleAuth()
-gauth.LocalWebserverAuth()
+gauth.CommandLineAuth()
 drive = GoogleDrive(gauth)
 print('login saccc')
 
