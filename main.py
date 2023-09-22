@@ -45,7 +45,8 @@ async def get_photo(message: types.Message, state: FSMContext):
 	topic = data.get('topic', 'невідомо')  # "невідомо" стоїть напевно на випадок помилки
 
 	local_file_path = f'https://drive.google.com//drive//folders//maraphon//{str(user_id)}//{topic}//'
-	photo_transfer(user_id)
+
+	photo_folder = photo_transfer(user_id, topic, drive)
 
 	photo = message.photo[-1]  # Отримайте останню фотографію з повідомлення
 	file_info = await bot.get_file(photo.file_id)
@@ -53,8 +54,10 @@ async def get_photo(message: types.Message, state: FSMContext):
 	# Отримайте URL-адресу файлу фотографії на сервері Telegram
 	file_url = file_info.file_path
 	response = requests.get(f'https://api.telegram.org/file/bot{BOT_TOKEN}/{file_url}')
+	print(photo_folder)
 
-	file1 = drive.CreateFile({'title': f'{message.photo[0].file_id}' + '.png'})  # Create GoogleDriveFile instance with title 'Hello.txt'.
+	file1 = drive.CreateFile({'title': f'{message.photo[0].file_id}' + '.png',
+							  'parents': [{'id': photo_folder}]})  # Create GoogleDriveFile instance with title 'Hello.txt'.
 	file1.content = io.BytesIO(response.content)  # Set content of the file from given string.
 	file1.Upload()
 
