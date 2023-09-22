@@ -16,8 +16,8 @@ from photo_transfer import photo_transfer
 
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth()
-
 drive = GoogleDrive(gauth)
+print('login saccc')
 
 BOT_TOKEN = '5675794527:AAHSjUvT1UQOxRFJYRiok4eBa4m6h3v-Fqo'
 
@@ -25,6 +25,7 @@ bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 callback_data = {}
+print('login again')
 
 class States(StatesGroup):
 	photo_send = State()
