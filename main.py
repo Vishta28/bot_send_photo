@@ -90,4 +90,4 @@ if __name__ == "__main__":
 	port = int(os.environ.get("PORT", 5000))
 
 	# Запустіть ваш веб-сервер (бота) на цьому порту
-	executor.start_polling(dp, skip_updates=True, on_startup=None, on_shutdown=None, host="0.0.0.0", port=port)
+	executor.start_polling(dp, skip_updates=True, on_startup=None, on_shutdown=None, port=port)
