@@ -20,12 +20,6 @@ scope = ["https://www.googleapis.com/auth/drive"]
 gauth.credentials = ServiceAccountCredentials.from_json_keyfile_name('client_secrets.json', scope)
 drive = GoogleDrive(gauth)
 
-# gauth = GoogleAuth()
-#
-# gauth.service_account_keyfile = 'client_secrets.json'
-#
-# gauth.ServiceAuth()
-
 print('login saccc')
 
 BOT_TOKEN = '5675794527:AAHSjUvT1UQOxRFJYRiok4eBa4m6h3v-Fqo'
@@ -92,4 +86,8 @@ async def callback_retarget(call: types.CallbackQuery):
 
 
 if __name__ == "__main__":
-	executor.start_polling(dp, skip_updates=True)
+	# Отримайте порт із змінної середовища, наданої Heroku, або використовуйте 5000, якщо змінна не задана
+	port = int(os.environ.get("PORT", 5000))
+
+	# Запустіть ваш веб-сервер (бота) на цьому порту
+	executor.start_polling(dp, skip_updates=True, on_startup=None, on_shutdown=None, host="0.0.0.0", port=port)
