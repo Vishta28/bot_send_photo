@@ -14,32 +14,11 @@ from pydrive.drive import GoogleDrive
 import io
 from photo_transfer import photo_transfer
 
-# gauth = GoogleAuth()
-# gauth.LocalWebserverAuth()
-# gauth.LoadClientConfigFile('/app/.heroku/python/lib/python3.11/site-packages/pydrive/client_secrets.json')
-#
-# drive = GoogleDrive(gauth)
-
-# Створити об'єкт GoogleAuth
 gauth = GoogleAuth()
+gauth.LocalWebserverAuth()
+gauth.LoadClientConfigFile('/app/.heroku/python/lib/python3.11/site-packages/pydrive/client_secrets.json')
 
-# Задати конфігурацію вручну
-gauth.settings['client_id'] = '875334599397-cp256v0rqkprmob216ql0evonioip4or.apps.googleusercontent.com'
-gauth.settings['client_secret'] = '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'
-gauth.settings['redirect_uri'] = 'urn:ietf:wg:oauth:2.0:oob'
-
-# Аутентифікація
-gauth.CommandLineAuth()
-
-# Створити об'єкт GoogleDrive з аутентифікацією
 drive = GoogleDrive(gauth)
-
-
-
-
-
-
-
 print('login saccc')
 
 BOT_TOKEN = '5675794527:AAHSjUvT1UQOxRFJYRiok4eBa4m6h3v-Fqo'
