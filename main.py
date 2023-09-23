@@ -29,7 +29,7 @@ gauth.settings['client_secret'] = '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'
 gauth.settings['redirect_uri'] = 'urn:ietf:wg:oauth:2.0:oob'
 
 # Аутентифікація
-gauth.LocalWebserverAuth()
+gauth.CommandLineAuth()
 
 # Створити об'єкт GoogleDrive з аутентифікацією
 drive = GoogleDrive(gauth)
