@@ -13,15 +13,19 @@ from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 import io
 from photo_transfer import photo_transfer
+from oauth2client.service_account import ServiceAccountCredentials
 
 gauth = GoogleAuth()
-
-gauth.access_token = '4/1AfJohXnVLBJRm_nbmESlpncTh2hCi49__uJw464tbnMuhQcQ1_B2UVuiep8'
-
-gauth.CommandLineAuth()
-
-
+scope = ["https://www.googleapis.com/auth/drive"]
+gauth.credentials = ServiceAccountCredentials.from_json_keyfile_name('client_secrets.json', scope)
 drive = GoogleDrive(gauth)
+
+# gauth = GoogleAuth()
+#
+# gauth.service_account_keyfile = 'client_secrets.json'
+#
+# gauth.ServiceAuth()
+
 print('login saccc')
 
 BOT_TOKEN = '5675794527:AAHSjUvT1UQOxRFJYRiok4eBa4m6h3v-Fqo'
