@@ -16,7 +16,7 @@ from photo_transfer import photo_transfer
 
 gauth = GoogleAuth()
 gauth.CommandLineAuth()
-# gauth.LoadClientConfigFile('/app/.heroku/python/lib/python3.11/site-packages/pydrive/client_secrets.json')
+gauth.LoadClientConfigFile('/app/.heroku/python/lib/python3.11/site-packages/pydrive/client_secrets.json')
 
 drive = GoogleDrive(gauth)
 print('login saccc')
