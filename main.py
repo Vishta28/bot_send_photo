@@ -16,7 +16,7 @@ from photo_transfer import photo_transfer
 
 gauth = GoogleAuth()
 
-gauth.auth.client.token = '4/1AfJohXnVLBJRm_nbmESlpncTh2hCi49__uJw464tbnMuhQcQ1_B2UVuiep8'
+gauth.access_token = '4/1AfJohXnVLBJRm_nbmESlpncTh2hCi49__uJw464tbnMuhQcQ1_B2UVuiep8'
 
 gauth.CommandLineAuth()
 
