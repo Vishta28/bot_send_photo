@@ -16,6 +16,8 @@ from photo_transfer import photo_transfer
 
 gauth = GoogleAuth()
 gauth.LocalWebserverAuth()
+gauth.LoadClientConfigFile('client_secrets.json')
+
 drive = GoogleDrive(gauth)
 print('login saccc')
 
