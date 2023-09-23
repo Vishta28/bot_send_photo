@@ -86,8 +86,4 @@ async def callback_retarget(call: types.CallbackQuery):
 
 
 if __name__ == "__main__":
-	# Отримайте порт із змінної середовища, наданої Heroku, або використовуйте 5000, якщо змінна не задана
-	port = int(os.environ.get("PORT", 5000))
-
-	# Запустіть ваш веб-сервер (бота) на цьому порту
-	executor.start_polling(dp, skip_updates=True, on_startup=None, on_shutdown=None, port=port)
+	executor.start_polling(dp, skip_updates=True)
