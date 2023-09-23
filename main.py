@@ -15,19 +15,16 @@ import io
 from photo_transfer import photo_transfer
 
 gauth = GoogleAuth()
-gauth.CommandLineAuth()
+gauth.LocalWebserverAuth()
 drive = GoogleDrive(gauth)
 print('login saccc')
 
 BOT_TOKEN = '5675794527:AAHSjUvT1UQOxRFJYRiok4eBa4m6h3v-Fqo'
-CLIENT_ID = '875334599397-cp256v0rqkprmob216ql0evonioip4or.apps.googleusercontent.com'
-CLIENT_SECRET = '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'
 
 bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot, storage=MemoryStorage())
 
 callback_data = {}
-print('login again')
 
 class States(StatesGroup):
 	photo_send = State()
